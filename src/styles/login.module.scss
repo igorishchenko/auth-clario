@@ -1,0 +1,60 @@
+@use "./variables.module.scss" as vars;
+
+.loginPage {
+  font-family: sans-serif;
+  background-image: url("../../public/images/singUpBackground.png");
+  background-position: 50% 80%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @media (max-width: 425px) {
+    background-position: 50% 220%;
+  }
+
+  .signUpHeading {
+    font-size: vars.$heading-font-size;
+    color: vars.$text-color;
+    margin-bottom: 2.5rem;
+    font-weight: bold;
+  }
+
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: vars.$text-color;
+
+    .inputsContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .submitButton {
+      width: 240px;
+      color: white;
+      background: linear-gradient(to right, #70c3ff, #4b65ff);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: vars.$button-padding;
+      line-height: vars.$button-line-height;
+      border-radius: vars.$button-border-radius;
+      margin-top: 2.5rem;
+      font-weight: bold;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      &:disabled {
+        background: #d3d3d3;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

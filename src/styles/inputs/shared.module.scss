@@ -1,0 +1,42 @@
+@use "../variables.module.scss" as vars;
+
+.inputField {
+  input {
+    width: 315px;
+    outline: none;
+    border-radius: vars.$input-border-radius;
+    border: 1px solid transparent;
+    padding: vars.$input-padding;
+    margin-bottom: 0.5rem;
+
+    &.error {
+      border-color: vars.$error-color;
+      background-color: vars.$error-bg-color;
+    }
+
+    &.valid {
+      border-color: vars.$valid-border-color;
+      background-color: vars.$valid-bg-color;
+      color: vars.$valid-text-color;
+    }
+
+    &:focus {
+      border-color: vars.$focus-border-color;
+      color: vars.$focus-text-color;
+    }
+
+    &:disabled {
+      border: 1px solid #151d5133;
+      background: #151d511a;
+      cursor: not-allowed;
+      color: vars.$focus-text-color;
+    }
+  }
+
+  p.error {
+    color: vars.$error-color;
+    margin-bottom: 10px;
+    padding-left: 1.25rem;
+    font-size: vars.$error-font-size;
+  }
+}
