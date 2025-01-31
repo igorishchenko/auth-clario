@@ -27,6 +27,7 @@ const PasswordValidation = ({
       if (passwordValue.length < 8) newErrors.push("minLength");
       if (passwordValue.length > 64) newErrors.push("maxLength");
       if (!/[A-Z]/.test(passwordValue)) newErrors.push("hasUpperCase");
+      if (!/[a-z]/.test(passwordValue)) newErrors.push("hasLowerCase");
       if (!/\d/.test(passwordValue)) newErrors.push("hasNumber");
       if (/\s/.test(passwordValue)) newErrors.push("noSpaces");
     }
@@ -49,10 +50,20 @@ const PasswordValidation = ({
 
   return (
     <ul className={passwordStyles.passwordRequirements}>
-      <li className={getClassNames("minLength")}>
+      <li
+        className={classNames(
+          getClassNames("minLength"),
+          getClassNames("noSpaces")
+        )}
+      >
         8 characters or more (no spaces)
       </li>
-      <li className={getClassNames("hasUpperCase")}>
+      <li
+        className={classNames(
+          getClassNames("hasUpperCase"),
+          getClassNames("hasLowerCase")
+        )}
+      >
         Uppercase and lowercase letters
       </li>
       <li className={getClassNames("hasNumber")}>At least one digit</li>
